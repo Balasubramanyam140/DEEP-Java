@@ -2,6 +2,7 @@
 2)  ArrayException
     ArithmeticException
     NullPointerEception
+3)   NumberFormatException Attempting to parse a non-numeric string to an integer 
 
 
   -----------------------------------------------------------------------------------------------------
@@ -91,3 +92,21 @@ OUTPUT :
           Caught ArithmeticException: / by zero
           Caught NullPointerException: null
 ----------------------------------------------------------------------------------------------------
+3)   NumberFormatException Attempting to parse a non-numeric string to an integer 
+
+
+                 class NumberFormatExceptionExample {  
+                public static void main(String[] args) {  
+                    String str = "abc"; // Initializing a String with non-numeric characters  
+                    try {  
+                        int num = Integer.parseInt(str); // Attempting to parse a non-numeric string to an integer  
+                        System.out.println("Parsed number: " + num);  
+                    } catch (NumberFormatException e) {  
+                        System.out.println("Error: Unable to parse the string as an integer.");  
+                        // Additional error handling code can be added here  
+                    }  
+                }  
+            }  
+OUTPUT:
+        Error: Unable to parse the string as an integer.
+--------------------------------------------------------------------------------------------------------
