@@ -3,8 +3,8 @@
     ArithmeticException
     NullPointerEception
 3)   NumberFormatException Attempting to parse a non-numeric string to an integer 
-
-
+4) Using throw
+5) Using throws
   -----------------------------------------------------------------------------------------------------
   1) If Array_out_of_Bound_Index using Exception case
   
@@ -110,3 +110,62 @@ OUTPUT :
 OUTPUT:
         Error: Unable to parse the string as an integer.
 --------------------------------------------------------------------------------------------------------
+4) Using Throw
+
+            class InvalidAgeException extends Exception {
+                public InvalidAgeException(String message) {
+                    super(message);
+                }
+            }
+            
+            class Solution {
+                
+                static void checkAge(int age) {
+                    try {
+                        if (age < 18) {
+                            throw new InvalidAgeException("Age must be 18 or older to proceed.");
+                        } else {
+                            System.out.println("Age is Valid.");
+                        }
+                    } catch (InvalidAgeException e) {
+                        System.out.println(e.getMessage());  // Handling the exception inside the method
+                    }
+                }
+            
+                public static void main(String[] args) {
+                    checkAge(16);  // No need for a try-catch in the main method
+                }
+            }
+
+OUTPUT :
+        Age must be 18 or older to proceed.
+--------------------------------------------------------------------------------------------------------
+5) Uing throws
+
+         class InvalidException extends Exception{
+                public InvalidException(String message){
+                    super(message);
+                }
+            }
+            
+            class Main{
+                static void checkAge(int age) throws InvalidException{
+                    if(age < 18){
+                        throw new InvalidException("Age must be 18 or older to proceed.");
+                    }
+                    else{
+                        System.out.println("Age is Valid.");
+                    }
+                }
+                public static void main(String[] args){
+                    try{
+                        checkAge(16);
+                    }catch(InvalidException e){
+                        System.out.println("Caught Exception :"+e);
+                    }
+                }
+        }
+OUTPUT :
+            Caught Exception :InvalidException: Age must be 18 or older to proceed.
+--------------------------------------------------------------------------------------------------------    
+
